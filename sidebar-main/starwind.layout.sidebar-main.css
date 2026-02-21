@@ -1,0 +1,27 @@
+@layer starwind.layout {
+    :where(sw-sidebar-main) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(
+            --sw-sidebar-main-gap,
+            var(--sw-gap, var(--sw-space-s-m, 1rem))
+        );
+        align-items: var(--sw-sidebar-main-align, stretch);
+    }
+
+    :where(sw-sidebar-main) > :where(:first-child) {
+        flex-basis: var(--sw-sidebar-main-size, 18rem);
+        flex-grow: 1;
+        min-inline-size: 0;
+    }
+
+    :where(sw-sidebar-main) > :where(:last-child) {
+        flex-basis: 0;
+        flex-grow: 999;
+        min-inline-size: var(--sw-sidebar-main-content-min, 50%);
+    }
+
+    :where(sw-sidebar-main[reversed]) {
+        flex-direction: row-reverse;
+    }
+}
